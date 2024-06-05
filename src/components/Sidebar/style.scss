@@ -1,0 +1,28 @@
+@import '../../colors.scss';
+
+.sidebar {
+  padding: 12px;
+  border: 1px solid $border-color;
+  border-radius: 18px;
+  max-width: 264px;
+
+  &__item {
+    padding: 12px;
+
+    display: -webkit-box;
+
+    font-weight: 800;
+    color: $primary-color;
+
+    cursor: pointer;
+    border-radius: 12px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    &_active {
+      background-color: $active-color;
+      color: $active-text-color;
+    }
+  }
+}
