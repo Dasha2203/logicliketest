@@ -1,0 +1,28 @@
+.container {
+  padding: 24px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.list-courses {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+
+  &__link {
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+
+  .course {
+    width: 100%;
+  }
+
+  @media (max-width: 902px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}

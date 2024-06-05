@@ -1,10 +1,8 @@
+import Courses from './Pages/Courses'
+
 function App() {
 
-  return (
-    <div>
-
-    </div>
-  );
+  return <Courses />
 }
 
-export default App;
+export default App

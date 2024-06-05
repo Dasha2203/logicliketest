@@ -1,28 +1,115 @@
 @import '../../colors.scss';
 
 .sidebar {
+  position: sticky;
+  top: 24px;
+
   padding: 12px;
+
+  min-width: 264px;
+  max-height: calc(100vh - 48px);
+
   border: 1px solid $border-color;
   border-radius: 18px;
-  max-width: 264px;
+  overflow-y: auto;
 
   &__item {
     padding: 12px;
-
-    display: -webkit-box;
 
     font-weight: 800;
     color: $primary-color;
 
     cursor: pointer;
     border-radius: 12px;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+    white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
 
     &_active {
       background-color: $active-color;
       color: $active-text-color;
+    }
+  }
+
+  &__button {
+    position: relative;
+
+    display: none;
+    width: 26px;
+    height: 26px;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    span {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: $active-color;
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: $active-color;
+      }
+
+      &::before {
+        top: -8px;
+      }
+
+      &::after {
+        top: 8px;
+      }
+    }
+
+    &_active {
+      span {
+        transform: rotate(45deg);
+
+        &::before {
+          top: 0;
+          transform: rotate(0);
+        }
+
+        &::after {
+          top: 0;
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 707px) {
+    min-width: 50px;
+
+    &__button {
+      display: block;
+    }
+
+    &__list {
+      position: fixed;
+      visibility: hidden;
+      top: 0;
+      right: 0;
+      left: 85px;
+      bottom: 0;
+
+      padding-top: 24px;
+      
+      background-color: #FFFFFF;
+      opacity: 0;
+      transition: all .3s ease;
+
+      &_active {
+        visibility: visible;
+        opacity: 1;
+      }
     }
   }
 }
